@@ -1,0 +1,20 @@
+services:
+  pg:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-pa55word}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg-data:/var/lib/postgresql
+    restart: unless-stopped
+    networks:
+      - greenlight
+
+volumes:
+  pg-data:
+
+networks:
+  greenlight:
+    driver: bridge
