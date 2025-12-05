@@ -1,4 +1,4 @@
-module github.com/OskarLiew/greenlight
+module github.com/OskarLiew/LetsGoGreenlight
 
 go 1.25.4
 
