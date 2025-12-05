@@ -3,7 +3,7 @@ package data
 import (
 	"time"
 
-	"github.com/OskarLiew/greenlight/internal/validator"
+	"github.com/OskarLiew/LetsGoGreenlight/internal/validator"
 )
 
 type Movie struct {

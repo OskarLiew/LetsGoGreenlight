@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/OskarLiew/greenlight/internal/data"
-	"github.com/OskarLiew/greenlight/internal/validator"
+	"github.com/OskarLiew/LetsGoGreenlight/internal/data"
+	"github.com/OskarLiew/LetsGoGreenlight/internal/validator"
 )
 
 func (app *application) createMovieHandler(w http.ResponseWriter, r *http.Request) {
