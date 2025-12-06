@@ -2,10 +2,13 @@
   pkgs ? import <nixpkgs> { },
 }:
 pkgs.mkShell {
-  buildInputs = [
-    pkgs.go
-    pkgs.gopls
-    pkgs.hey
+  buildInputs = with pkgs; [
+    go
+    gopls
+    hey
+    (go-migrate.overrideAttrs (oa: {
+      tags = [ "postgres" ];
+    }))
   ];
   shellHook = ''
     echo "Ready!"
