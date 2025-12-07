@@ -11,7 +11,7 @@ import (
 	"time"
 
 	"github.com/OskarLiew/LetsGoGreenlight/internal/data"
-	_ "github.com/lib/pq"
+	// _ "github.com/lib/pq"
 )
 
 const version = "1.0.0"
