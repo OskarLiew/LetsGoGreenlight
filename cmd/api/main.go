@@ -4,7 +4,6 @@ import (
 	"context"
 	"database/sql"
 	"flag"
-	"fmt"
 	"log/slog"
 	"os"
 	"strconv"
@@ -72,8 +71,6 @@ func main() {
 	flag.StringVar(&cfg.smtp.username, "smtp-username", os.Getenv("SMTP_USERNAME"), "SMTP username")
 	flag.StringVar(&cfg.smtp.password, "smtp-password", os.Getenv("SMTP_PASSWORD"), "SMTP password")
 	flag.StringVar(&cfg.smtp.sender, "smtp-sender", "Greenlight <no-reply@greenlight.oskarliew.com>", "SMTP sender")
-
-	fmt.Printf("%+v", cfg)
 
 	flag.Parse()
 
