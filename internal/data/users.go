@@ -42,8 +42,8 @@ func (p *password) Set(plaintextPassword string) error {
 	return nil
 }
 
-func (p *password) Matches(plaintestPassword string) (bool, error) {
-	err := bcrypt.CompareHashAndPassword(p.hash, []byte(plaintestPassword))
+func (p *password) Matches(plaintextPassword string) (bool, error) {
+	err := bcrypt.CompareHashAndPassword(p.hash, []byte(plaintextPassword))
 	if err != nil {
 		switch {
 		case errors.Is(err, bcrypt.ErrMismatchedHashAndPassword):
