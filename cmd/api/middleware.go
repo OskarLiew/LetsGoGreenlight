@@ -190,8 +190,18 @@ func (app *application) enableCORS(next http.Handler) http.Handler {
 		w.Header().Set("Vary", "Origin")
 
 		origin := r.Header.Get("Origin")
+
 		if origin != "" && slices.Contains(app.config.cors.trustedOrigins, origin) {
 			w.Header().Set("Access-Control-Allow-Origin", origin)
+
+			// Is a preflight CORS request
+			if r.Method == http.MethodOptions && r.Header.Get("Access-Control-Request-Method") != "" {
+				w.Header().Set("Access-Control-Allow-Methods", "OPTIONS, PUT, PATCH, DELETE")
+				w.Header().Set("Access-Control-Allow-Headers", "Authorization, Content-Type")
+
+				w.WriteHeader(http.StatusOK)
+				return
+			}
 		}
 
 		next.ServeHTTP(w, r)
